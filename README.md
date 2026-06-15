@@ -1,2 +1,2 @@
-# turtleGS
-Parker builds a cyberdeck intended to be a rocketry ground station. 
+# SmasherGS
+A LattePanda Mu cyberdeck intended to be a rocketry ground station. 
