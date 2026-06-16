@@ -3,6 +3,38 @@
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
 
+# 2026-06-16
+**Total time spent: 4.5 hours**
+
+Alright so. I decided to tackle the usbc 3.2 ports. I want to have both ports able of charging the battery with decent speed (20v) and high data speed.
+
+First things first I had to find a new usbc port with the required rx/tx lines for high speed. From there, I wanted to do the TVS filtering. I started following this diagram from TI:
+
+<img width="1331" height="767" alt="image" src="https://github.com/user-attachments/assets/93a4e796-a86e-4e17-adfb-74121b060cee" />
+
+<img width="1106" height="622" alt="image" src="https://github.com/user-attachments/assets/ee3a1ae6-60a0-4cd3-9816-6483370a3094" />
+
+<img width="1578" height="595" alt="image" src="https://github.com/user-attachments/assets/364bf096-4117-46ce-bf8a-bcce5e0d00e4" />
+
+This sucks. Like, really bad. It will be impossible to route, takes so much space, and the parasitics are probbaly mind boggling. So, I decided to look for chips that do multi input filtering. This way it's nice and compact but still gives me all the tvs protection. 
+
+<img width="1328" height="953" alt="image" src="https://github.com/user-attachments/assets/21e6e12f-e921-4e2b-b54f-916e86ba5c95" />
+
+After a LOT of digging I ended up at this. One IC specifically for handling Vbus, since that is high voltage, and then 3 of another IC for rx/tx/d+/d-. These diodes act as protection from surges, static, water shorting, etc. so my circuit doesn't fry. That took about 2 hours.
+
+Now for what took the rest of the time. Trying to figure out multi port charging. 
+Tl:Dr It is extremely difficult to pull off as a hobbyist. Why? I don't know. But I will just have one charging port.
+
+I started with just trying to have two usb pd negotiators and one charging IC. However. USB PD requires that the negotiator chip talk with the charger IC for safety purposes. For some reason, nobody has bothered to implement it in a way that allows for more than one negotiator per charger. With all the Ti products for example, none of them offer i2c addressing, so they will always end up conflicting with eachother and could even pose a fire risk. 
+All the chargers that can handle it require talking to your CPU itself. The problem with that is... that is really, really difficult to configure. It's not available in BIOS clearly and it isn't in software. It's like cpu side firmware stuff that you need specialized tools to work with. This is why laptop manufacturers always partner with CPU manufacturers (and charger manufacturers) - they get those tools. 
+At one point I found a dual port charger IC from TI and got super excited!
+
+But. It was not 2 in 1 out. It was 2 in 2 out. It solved none of my issues as you still had conflicting logic of the two power paths. Bleh.
+
+So, after all that effort, talking with friends, even making a reddit post, I decided it would just be best if I only had charging on one port and data on both. That's fine and makes my job simpler, I just have to remember which one is charging when I go to plug the device in. 
+Anywho, I didn't end up getting to routing the signals to the usb 3.2 logic controller, which is what handles all the signal processing to pass onto the lattepanda and whatnot. I will do that next entry! I also want to work on HDMI next entry. That too will need TVS diode protection but I should be able to use the same chips I think! 
+I spent so long researching and reading datasheets. I have 60 chrome tabs open right now. Bleh.
+
 # 2026-06-15: Big News!
 **Total time spent: 3 hours**
 
