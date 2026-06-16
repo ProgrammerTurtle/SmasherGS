@@ -2,6 +2,50 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+
+# 2026-06-15: Big News!
+**Total time spent: 3 hours**
+
+Hi. So.
+This project has been sponsored by LattePanda/DFRobot! I will be receiving a LattePanda Mu to base this project around.
+
+That means some things have to change! My MCU of course, my power plan a little, my format, my USB plan, etc. A lot of changes.
+
+First change - get the lattepanda in and start labeling pins! I got the symbol for this fella from an open source carrier board found here: https://oshwlab.com/yoge2013/mini-carrier-demo-for-lattepanda-mu
+This is a very well done mini carrier and will be good inspiration for mine. 
+
+<img width="1592" height="1126" alt="image" src="https://github.com/user-attachments/assets/14d71498-c3af-44d7-8d75-5130911b6733" />
+
+Because of how big this is and how many pins there are, it gets two sections in its schematic. One is for power and one is for literally everything else. Power is on the right, else on the left.
+
+I am not sure if I will be using all of these pins but I will sure use a lot of them, so they are getting labels just in case.
+
+Now, for what changes.
+First of all my power architecture changes a little as I need to boost 1s lipo voltages up to 12v for the Mu. This is simple enough and can be taken care of by a single boost converter. This circuit was figured out by Ti's webench power supply configurator, a glorious tool that made this so easy. I inputted what I had and what I needed and it spat out a bunch of options - I picked the simplest and most efficient one. 
+
+<img width="972" height="586" alt="image" src="https://github.com/user-attachments/assets/38c93c61-525b-492b-bbaf-db97d4c397b0" />
+
+I also realized my 5v setup was a buck, not a boost, so I need to give it the 12v instead of raw system battery voltage. Easy fix. 
+So the power path goes Battery -> Regulator/Charger -> 12v -> 5v -> 3v3
+I think that should work. I don't know if I need 1v8 yet... we are gonna find out. 
+
+Anywho, I also stole the m.2 storage setup from the carrier board. "Stole". It needs a little modification to fit my stuff but I will do that later. 
+
+<img width="1758" height="802" alt="image" src="https://github.com/user-attachments/assets/bca3db0b-235f-43eb-b344-88e5f480fba5" />
+
+One of them is actually for a wifi card while the other is actually storage. The Mu does not have built in wifi like the CM5 does. Probably doesn't fit, this thing is sooo dense.
+
+Anywho. Some more changes will need to be made. 
+For starters, I don't think I need the USB Hub IC's anymore? Since the Mu has 8x USB 2.0 + 4x Usb 3.2. But I think some of them have to be multiplexed pins from pcie/sata? Basically meaning dual function pins and I can only pick one function, via bios. Since I need pcie for both storage and wifi, I might get cut short on usb ports. But that might not be an issue! I need to look into it more and do some planning.
+
+What else... The lorawan stuff probably cannot be over SPI anymore? I don't actually know how that works with windows... Or I just give in and run linux. I dunno. Gotta think about it.
+
+Continuity checker will probably be made hardware only? Or it just becomes yet another usb device. Maybe I will want a usb hub IC just so I have more IO available. 
+
+RTL-SDR is usb as always. Screen... I have two options. I can either deal with routing hdmi or try to just use the ribbon on the mu. The issue with that is there can be mismatches in pinouts on the ribbon cables - that can't happen with hdmi. So I think I will probably just expose HDMI. One external for external screens and one internal for the main screen, I think. 
+
+That's all for this entry. I am gonna continue reading lattepanda documentation and watch some videos on carrier board design (omg... those exist!!!).
+
 # 2026-06-03: Battery Charging
 
 **Total time spent: 6 hours**
