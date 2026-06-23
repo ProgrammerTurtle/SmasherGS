@@ -3,6 +3,34 @@
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
 
+
+# 2026-06-22
+**Total time spent: 2 hours**
+
+Howdy.
+I figured out the USB stuff! Turns out, I can just wire any two GPIO pins from the TPS25751 to the flip and enable pins of my usbc mux and then I can assign those roles through programming. Ezpz.
+I enabled adaptive EQ, so for the port side of the mux I don't need to config any EQ. I think I will need to config EQ for the host side, but I cannot do that until I know my trace lengths! So it is officially a "later me problem".
+
+<img width="1608" height="1123" alt="image" src="https://github.com/user-attachments/assets/f3fffc14-5cc1-47f0-b955-e208486004af" />
+
+Tada. Usbc port with charging. 
+The other usbc port was pretty easy. I used a controller that integrates both power control and the mux into one IC, making my life easier. 
+
+<img width="1612" height="1125" alt="image" src="https://github.com/user-attachments/assets/ca5e44c7-8069-4a38-9b12-18624180d3e4" />
+
+This side doesn't have a charging circuit since as I covered previously, that is surprisingly difficult to pull off. But what it does have is a vbus power switch to hook vbus to my 5v source for downstream mode. That way it can power peripherals like mice and keyboards. My other port should be able to handle that automatically through the tps25751 so I don't need a vbus switch. That's the only difference besides some pin naming between the two schematics! Both have, from left to right, the port (and PD negotiator if present), the TVS diodes, and then the usbc controller/mux/redriver/they're all the same. 
+
+I chose the tps25221 for my vbus controller because it is active both low and high, while I need active low, and because TI has great datasheets. Most of the chips I was finding are only active high, so its nice that this one is both, as my usbc controller outputs active low through the ID pin. This means the pin gets pulled low when the usbc port is connected. 
+
+Anywho, I can move on from usbc for now. Actually USB in its entirety since I already have my USBA 2.0 ports wired too. I am not sure if they are connected to the Mu yet, they might not be, but that is ok since I need to figure some other stuff out first before I go determining pin assigments for certain. For example...
+
+HDMI! That is what I will be tackling in my next entry. I will have two HDMI 2.1 ports, one internal for the built in screen and one external for external screens. As I have mentioned before, I could try to use ribbon for the built in screen, but I don't want to worry about pinout issues. So I will just suffer a little. By default, the lattepanda mu exposes 2 out of the 3 max HDMI ports, which is perfectly what I need. No bios changes needed yet, to my knowledge!
+
+Ta ta for now. Surely hdmi won't be a huge headache, right?
+
+Right?
+
+
 # 2026-06-16
 **Total time spent: 4.5 hours**
 
