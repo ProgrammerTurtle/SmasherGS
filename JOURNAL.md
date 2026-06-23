@@ -4,6 +4,82 @@ LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
 
 
+
+# 2026-06-22
+**Total TIme Spent: 4 hours**
+
+Howdy again! Second entry for today. I tackled HDMI and... the keyboard! 
+First, hdmi. I have two hdmi ports. One on the inside, one the outside. I need a port, protection diodes, and some power stuff/other misc. requirements. 
+
+<img width="1601" height="1122" alt="image" src="https://github.com/user-attachments/assets/3ae4bd7c-80bd-4703-9d90-9cd73eaffdec" />
+
+I started with just getting everything wired up. I followed a reference design from lattepanda to figure out which pin goes where. You can see a bunch of resistors on the data lines - those are an intel requirement for hdmi. They connect to a mosfet that is controlled by the state of the PC (shutdown, sleep, etc). They help with compatibility I think? Idk, it's just a necessity. 
+Bottom left is the ESD diodes. They're the same diodes from my usb shenanigans - they are advertised to work for both. 
+
+<img width="1607" height="1123" alt="image" src="https://github.com/user-attachments/assets/44bf09a1-6f79-4b44-8edd-d960862c9542" />
+
+Next was I2C. The HDMI side needs 5v while the lattepanda side needs 3v3. So, I use a logic converter or whatever it's called. This just converts cleanly between two reference voltages, 3v3 and 5v. 
+
+<img width="759" height="405" alt="image" src="https://github.com/user-attachments/assets/01a52ad3-d3a7-4b99-aef3-ace99a47a798" />
+
+When I scrolled down further in the datasheet I saw I needed decoupling and pullup resistors. So, there's that. Oops.
+
+Oh I also forgot to cover the bottom right. That's hot plug detecting. Basically, it lets the intel graphics processor know when the cable has been plugged in or unplugged while the device is on. That way it can reconfigure or whatever. 
+5v power for this also has a diode on it so that it can NEVER EVER BACKFEED. EVER. That can destroy stuff!
+
+Anywho, I have two ports, so all of that gets duplicated for round 2. 
+
+<img width="1502" height="919" alt="image" src="https://github.com/user-attachments/assets/94107b9f-c523-4ae5-923f-a256ae1e7dd0" />
+
+The pinout follows the same scheme as the first one despite the different naming. It's still the same thing, just different names. 
+
+<img width="661" height="666" alt="image" src="https://github.com/user-attachments/assets/2c829278-5a55-4aec-9a8a-87c9a15f8d98" />
+
+You can see they follow the same order and everything. 
+
+That's actually all for hdmi for now. Routing will be a different story since they're high speed differential pairs and thus need really fancy treatment... We will get there eventually. I hope.
+
+Next.
+Keyboard! I started by making my matrix. 
+
+<img width="1328" height="584" alt="image" src="https://github.com/user-attachments/assets/e68b9dd0-eccc-4828-ae6b-f0138dc0330c" />
+
+
+I am doing a 60 key 50% choc keyboard, mimmicking this bad boy:
+
+<img width="1328" height="584" alt="image" src="https://github.com/user-attachments/assets/97153bc9-2d90-47bc-98e2-f0495f9a6d81" />
+
+Called the jj50. It doesn't use choc switches but thats ok. It will be hot swappable as I don't like hard soldering keyswitches. Sockets are also dirt cheap. 
+Next was mcu. It's going to be a hardwired usb device, but it still needs an mcu to pretend to be that usb device even though its on the same pcb as the rest of the cyberdeck. 
+I started with an rp2040. Then asked my brother if he has used one. And he said to use something else. So after a bit of browsing I chose an stm32f072cbt6 for simplicity and ease. Man, was it simple. 
+
+<img width="1850" height="1295" alt="image" src="https://github.com/user-attachments/assets/9f3be723-2bdc-42d1-9357-5cffa4f4f6c1" />
+
+Like, that's it y'all. ESD diodes, reset and boot buttons, and the mcu, which just gets given power, two usb lines, and the keyboard matrix. Nothing else. It was surprisingly simple and I spent so long checking the datasheet to make sure I wasn't doing something wildly wrong. I am not! (To my knowledge).
+
+In just a couple hours we have fully finished the HDMI and keyboard schematic. Unlike the USB I don't have to tune EQ based off my pcb traces, so I can just finish those bad boys right now.
+In a days work, we have done USBC, HDMI, and keyboard. Yippee! 
+
+<img width="220" height="364" alt="image" src="https://github.com/user-attachments/assets/cfba1d80-a976-4f5f-a95a-3a8f6536e001" />
+
+Oh, I hit 10 pages on my schematic btw. This is a BIG project. 
+
+## What's left?
+We have:
+Ethernet
+LORAWAN/Meshtastic
+Accelerometer and GPS (may remove)
+Trackball
+Knob
+Continuity Checker (may remove, tho it is cool)
+And making sure everything is connected to the Mu properly
+
+That's all for schematic! Basically, a bunch of the inputs and some sensors. I may remove the accelerometer and GPS because I am really not sure they will be very useful compared to how annoying they will be. We will see, I need to think about it!
+
+Ta ta, again. I will not be journaling again today. I am sleepy. 
+
+
+
 # 2026-06-22
 **Total time spent: 2 hours**
 
