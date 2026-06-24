@@ -3,10 +3,55 @@
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
 
+# 2026-06-23
+**Total time spent: 3 hours**
 
+Today was ethernet and some little touches here and there. Connecting stuff to the lattepanda mu, changing some usba ESD diodes, planning, etc.
+
+First, ethernet. I do not understand ethernet. I tried hard to understand and use a TI IC for it and make my own circuit. I couldn't figure it out. So, I made my own version of a circuit I found on an existing lattepanda mu carrier board - the lattepanda MOKA. https://github.com/piecol/lattepanda_MOKA
+It's a pretty cool project and has good examples of some high speed routing and schematic design. 
+
+<img width="1612" height="1095" alt="image" src="https://github.com/user-attachments/assets/ed430b3c-1e1a-4336-9627-8b627742c850" />
+
+This is what the MOKA has for ethernet. 
+
+<img width="1839" height="1300" alt="image" src="https://github.com/user-attachments/assets/320a6500-c857-4126-8538-659a1f9a16f1" />
+
+And this is what I have. Similar, but I made a fair amount of changes. Notably: 
+Different ESD diodes, I like the TI ones.
+Different AC coupling capacitors, the MOKA used the wrong ones? I guess it wasn't an issue but they are supposed to be 220nf, not 100nf. Straight from lattepanda/intel, so I know it's right. 
+DIfferent resistors to match datasheets better. 
+Different crystal.
+Different pin names of course.
+
+I think that's it? And I made everything bigger and easier to see. At their core, the circuits are similar, but I made a fair amount of changes. Call it a *Reference*. 
+Oh, I also hooked up 3v3 VCC to the ethernet port. For some reason the moka just has a capacitor straight to ground?? Which is a silly mistake and probably a non issue but could affect the performance of your magnetics (if they even get power at all without that... datasheet isn't very helpful.)
+
+So that's ethernet! This will be super nice. I am using an IC that supports ethernet evaluation and fancy debug stuff so I should be able to use this for debugging if I wanted to. Good cyberdeck ability. 
+
+Next.
+
+<img width="1516" height="723" alt="image" src="https://github.com/user-attachments/assets/fd7221a2-bbfa-4692-abc1-c0280e9a5e86" />
+
+I changed my USBA to use the TI ESD diodes from my other pages since they are much nicer than the weird cheapo chinese one that I had before. 
+
+Next again!
+
+Some little touches here and there on wiring. 
+
+<img width="804" height="558" alt="image" src="https://github.com/user-attachments/assets/9dfc2de4-0873-48fc-8c8f-b382b07564c6" />
+
+Look! USB has the keyboard wired in! That's just an example of one little touch. Basically all pin mangement though. Double checking, triple checking, quadruple checking. I will never stop checking. 
+
+Anywho, I also mentioned planning. I am switching to Linux. Planning on windows initially was a little silly but I wanted to be able to use fusion360. I could maybe use proxmox with windows? Depends what ram version I get of the Mu. We will see!
+This also means I shouldn't need to run GPS and LORAWAN as USB devices, but rather straight to the mcu over i2c/spi/uart (haven't decided). Technicallyyyy windows supports that but you need ring 0 level drivers which are incredibly annoying to deal with because of security shtuff. So, I just won't deal with it! Linux to the rescue. This is probably the right choice for a lot of reasons I have yet to determine. 
+
+That's all for today. Next is gonna be finally tacking GPS and Lorawan I think? Or maybe I put it off more by doing trackball stuff. Though I may just make the trackball a USB module so that I can move it.... We will see. 
+It's funny, I am already past 24 hours of work on this... and I haven't started any routing or cad. None. Zero. 
+Yippee. 
 
 # 2026-06-22
-**Total TIme Spent: 4 hours**
+**Total time spent: 4 hours**
 
 Howdy again! Second entry for today. I tackled HDMI and... the keyboard! 
 First, hdmi. I have two hdmi ports. One on the inside, one the outside. I need a port, protection diodes, and some power stuff/other misc. requirements. 
