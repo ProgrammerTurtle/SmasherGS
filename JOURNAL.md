@@ -2,6 +2,85 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+# 2026-06-24
+**Total time spent: 2 hours**
+
+GPS and LORA!! These are the last two major things of the project. I am forgoing the continuity checker now because all my flight computers do continuity checking and, more importantly, I don't feel comfortable applying current to explosive charges using anything I designed. 
+
+First was GPS. I spent a while researching bias tee circuits so I could properly supply 5v to my active antenna. Bias tees are circuits that inject DC power into coaxial, aka AC, lines without disrupting the signal. Black magic in my opinion. Witchcraft. Regardless, after all my research, a friend pointed out that ublox has an integration manual that gives you the exact circuit needed. Because of course I would find that after my research. 
+
+<img width="1690" height="621" alt="image" src="https://github.com/user-attachments/assets/fda857d8-0c65-4be6-bf3f-270c5a0c7f8e" />
+
+It's actually quite simple in the end. I wired power, ground, uart for data, and the antenna line. That's it. I just have to remember that the antenna line is impedance matched to 50 ohm, which means I need to specify board stackup and all that jazz. I already need to do some of that stuff for other high speed sensitive signals like usb 3.2, ethernet, and hdmi, so nothing new for this project. This should be fully functiona GPS for my deck because linux is cool and supports uart well. This gps module is ten bucks... sheesh.
+
+Anywho, next, and somehow the last part of the entire schematic, was LORAWAN. I was initially using an SX1262 module from SEEED Studio but unfortunately none of those feature UART, only SPI. Technically speaking, the Mu has SPI, but it is in practice only able to be used for audio. So, I had to find something with UART. 
+I ended up finding the RAK3172-T. This is a cool module that uses a fancy MCU from ST that has lorawan integrated. Actually, it is the exact same mcu I am using for a camera controller board. That camera controller project is the reason I am putting lorawan on this deck in the first place (there are other reasons too now, but that was the main driving one). So, funnily, we come full circle. 
+Because this is a full MCU it does need firmware updates, so I have to include an STLink header and reset/boot buttons, but thats fine.   
+
+<img width="1111" height="918" alt="image" src="https://github.com/user-attachments/assets/3d721387-aefa-4342-94c9-428740008a3b" />
+
+Besides that I hook up uart and power and we are good to go. 
+
+<img width="1603" height="1119" alt="image" src="https://github.com/user-attachments/assets/bedc687d-4331-4835-b0e6-c1a58ca6dff7" />
+
+That leaves us with our last schematic page completed.
+
+Kinda.
+I determined that, unfortunately, I cannot do this as one big PCB like I had originally intended. That's chill, I just have to break off the keyboard, which I can do. So, the keyboard is now its own board. That means adding a usbc port to the keyboard for internal wiring. 
+
+<img width="1606" height="1136" alt="image" src="https://github.com/user-attachments/assets/d4850766-bc53-4da7-89b2-eb862da8d042" />
+
+Easy peasy, in the bottom left. It's just usb2.0, so nothing fancy. 
+
+Oh, I also need to add a 3v3 regulator. Huh. I just realized that literally while typing this. Let me grab the one from my deck. 
+
+<img width="1628" height="1128" alt="image" src="https://github.com/user-attachments/assets/0e32dff6-72c0-4509-9bf9-394dd5fc62a2" />
+
+Problem solved. This takes 5v from VBUS and converts it down to 3v3 for everything else. Simple fix.
+The cool thing about having my keyboard be a separate board is I could make the keyboard detachable. Will I do that? Not sure. It would be pretty neat though. 
+
+This also meant adding another internal USBA port for the keyboard wire. While I was at it, since I have extra usb lines, I added another external USBA port aswell. 
+
+<img width="1612" height="1132" alt="image" src="https://github.com/user-attachments/assets/7553a945-de71-4d34-8947-9b78ee76b3a4" />
+
+I organized the schematic a little while I was at it to make things look nice. I now have 3 internal USBA, 2 external, and 2 external USBC. That's 7 ports total, 4 of which are accessible externally. The 3 internal are reserved for an rtl-sdr, the keyboard, and powering the screen. 
+
+I actually went through and organized all the unorganized sheets! It looks pretty nice now. 
+
+<img width="1603" height="1117" alt="image" src="https://github.com/user-attachments/assets/8a437655-4ee1-4d6b-a487-d04af6c55b54" />
+
+<img width="1599" height="1126" alt="image" src="https://github.com/user-attachments/assets/5e4ed394-df83-4205-bbef-77e39afe6a24" />
+
+There's USBC Ports 1 and 2. 
+
+<img width="1597" height="1136" alt="image" src="https://github.com/user-attachments/assets/1a0912e2-a3a0-4c58-8741-22f0e1210a29" />
+
+There's Ethernet.
+
+<img width="1591" height="1124" alt="image" src="https://github.com/user-attachments/assets/5a8a9a70-8487-495c-88c8-73d0c2c9cd7c" />
+
+There's storage and wifi. 
+
+<img width="1606" height="1128" alt="image" src="https://github.com/user-attachments/assets/b01c4195-66a3-43df-bb03-93578ebdcb59" />
+
+And last, but not least, power finalized. I cannot really organize hdmi much because of the way I intertwined all the stuff, but they don't look bad. Well I can split off the ESD diodes like this:
+
+<img width="1606" height="1125" alt="image" src="https://github.com/user-attachments/assets/a806f878-6d41-45e2-80c2-b4f234b4397e" />
+
+Yeah sure, why not. Both pages for hdmi are identical.
+
+That's it. All I have left before I can start the PCB is a bit of spatial planning and double check EVERYTHING. Quadruple checking. You know the drill.
+
+Alright. This is looking good!
+
+
+WAAAAIIITTT I forgot something.
+
+The LattePanda Mu arrived! This was sponsored by DFRobot - I am so incredibly thankful for them. It's so small. Look at it!
+
+<img width="2160" height="2880" alt="image" src="https://github.com/user-attachments/assets/bcdf4dde-04f8-475f-a4e5-614efcf7778b" />
+
+Man, this project is gonna be awesome. Ok. End of entry. 
 
 # 2026-06-23
 **Total time spent: 3 hours**
