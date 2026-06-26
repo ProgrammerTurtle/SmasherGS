@@ -2,8 +2,34 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
-# 2026-06-24
+# 2026-06-25
 **Total time spent: 2 hours**
+
+Little fixes, little annoyances. 
+Ok so. I had to make a bunch of small fixes in prepping for pcb time and ugh. For instance, changing every instance of a + or - to _P or _N. Why? Because I decided I like that more and want it to be consistent across my whole schematic. What else... I ran DRC a few times to catch issues. Everything is wired up now. 
+Running DRC also showed me that some components were missing footprints, so I had to resolve that. For the most part that was an easy fix. But, I found out my usba 3.0 port was completely messed up and was somehow half of a 2 port schematic, with no footprint. So I had to fully replace that component. Fun fact - majority of LCSC usba 3.0 ports have no footprint or schematic. Problematic. I found one though! 
+
+<img width="999" height="674" alt="image" src="https://github.com/user-attachments/assets/df2c5bf1-51c4-4e12-8597-722099f5193c" />
+
+Tadaaa. 
+
+Oh I also realized I forgot fans and a power switch setup. Fans were easy, I just stole the circuit from the lattepanda reference design because I know that works. 
+
+<img width="1601" height="1120" alt="image" src="https://github.com/user-attachments/assets/e1cf83e4-e834-4d52-bedc-251b1e5a6af5" />
+
+Fan 1 is the cooler attached to the lattepanda while fan 2 will be some sort of additional inlet or something. I haven't decided yet but I will figure it out. It's nice to have either way. >
+
+<img width="1603" height="1125" alt="image" src="https://github.com/user-attachments/assets/22c2530e-3419-4ebe-bf09-d389e2498f94" />
+
+Power switch is simple but actually made me realize I had no way to cut power to anything but the mu, or everything. All or nothing basically. And that is not great for battery life, especially when my battery charging/monitoring circuit NEEDS to maintain power or else I could get a lipo fire (and I can't charge my battery, and I can't turn on stuff, etc). So, I split my 5v into two sections. 5v for the battery side and 5v for everything else. Then I put a load switch between the two and wired it to the power button. 
+90% of the power draw that isn't the mu is on 5v. 3V3 draws practically nothing and it's for the best that I maintain 3v3 power, as the Mu needs that for bios stuff. 12v is also needed to stay on as the Mu doesn't fully lose power, it goes into a shut-down standby mode waiting to be turned back on. This protects your data and whatnot. In desktop PCs, the PSU never actually turns off unless you actively turn it off! The power button just kills everything else. Same philosophy here. 
+
+Now I think I really am ready to start the pcb. I do want to maybe take a look in cad first to get an idea of what to do, but I could also just take a reserved design approach and work around the pcb. My two main design goals would thus be access to I/O and keeping it thin. Those are pretty simple if you just keep it in mind. I do need to make sure there is space for internal components and the screen and whatnot. 
+
+PCB Soon! 
+
+# 2026-06-24
+**Total time spent: 2.5 hours**
 
 GPS and LORA!! These are the last two major things of the project. I am forgoing the continuity checker now because all my flight computers do continuity checking and, more importantly, I don't feel comfortable applying current to explosive charges using anything I designed. 
 
