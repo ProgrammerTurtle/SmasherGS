@@ -2,8 +2,27 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+# 2026-06-26 
+**Total time spent: 2 hours**
+
+Keyboard! I finally decided to do some pcb design for this project and put the whole keyboard together. 
+Did I remember to take progress screenshots? 
+Nope. So. 
+
+<img width="1924" height="776" alt="image" src="https://github.com/user-attachments/assets/048ff681-b6e3-4922-8434-98cc54d3dd87" />
+
+This is the board. I need to add some mounting still but I cannot figure out what fits without messing with cad a bit, as this pcb doesn't have a representation of the switches.
+Here was my process.
+1. Organize. I started by manually laying out the whole key grid. Easyeda has tools to do this, but they cannot handle multiple components that group together (like switches and diodes). So, I did it all by hand. The keys are on a 17.5x18.5mm grid. This should put 1mm between each key. I then put all the brains on the left of the board for no reason other than I felt like it. In hindsight I maybe should have put them on the top, but I don't think I want to redo it   .
+2. Wire the grid. This was tedious as I had to go and do the traces for each diode and key, but I got it done. 
+3. Wire the brains. This is for 2 layer, so I have no gnd or 3v3 planes, something I have grown very used to. 
+4. Wire the grid to the brains. This took the most time as I had to keep redoing traces when I figured out I blocked something. 
+That's it ! A super quick ortholinear 50% keyboard with USBC for my deck. It may be detachable, hence the USBC. I haven't decided yet but I will soon.
+
+That's the easy part of this project done. Next is a bunch of hard routing. Ugh. 
+
 # 2026-06-25
-**Total time spent: 2.5 hours**
+**Total time spent: 2.5 hours**                
 
 Little fixes, little annoyances. 
 Ok so. I had to make a bunch of small fixes in prepping for pcb time and ugh. For instance, changing every instance of a + or - to _P or _N. Why? Because I decided I like that more and want it to be consistent across my whole schematic. What else... I ran DRC a few times to catch issues. Everything is wired up now. 
