@@ -3,7 +3,7 @@
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
 # 2026-06-25
-**Total time spent: 2 hours**
+**Total time spent: 2.5 hours**
 
 Little fixes, little annoyances. 
 Ok so. I had to make a bunch of small fixes in prepping for pcb time and ugh. For instance, changing every instance of a + or - to _P or _N. Why? Because I decided I like that more and want it to be consistent across my whole schematic. What else... I ran DRC a few times to catch issues. Everything is wired up now. 
@@ -29,7 +29,7 @@ Now I think I really am ready to start the pcb. I do want to maybe take a look i
 PCB Soon! 
 
 # 2026-06-24
-**Total time spent: 2.5 hours**
+**Total time spent: 3 hours**
 
 GPS and LORA!! These are the last two major things of the project. I am forgoing the continuity checker now because all my flight computers do continuity checking and, more importantly, I don't feel comfortable applying current to explosive charges using anything I designed. 
 
