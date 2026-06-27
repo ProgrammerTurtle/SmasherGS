@@ -2,6 +2,27 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+
+# 2026-06-27
+**Total Time Spent: 1 hour**
+
+CAD Break! I decided to toss the keyboard pcb in cad so I could get a full mockup with the switches and just get a general vibe for the scale. 
+
+<img width="1652" height="839" alt="image" src="https://github.com/user-attachments/assets/88c4ea31-dfd0-4190-b2a5-31c6dd6e2a56" />
+
+<img width="2066" height="1079" alt="image" src="https://github.com/user-attachments/assets/68baef09-cb6d-45f2-a32c-642b0c0c145b" />
+
+It turned out really good! I just did it with a simple rectangular pattern, the hardest part was lining up everything initially. The keycaps are an open source design I found called MOTE. https://www.printables.com/model/864126-mote-choc-low-profile-flat-keycaps
+I really like the flat look. On the real thing I will probably get legended keycaps but I don't think I will cad that. I mean maybe I could if I feel like placing a ton of decals (I don't). Maybe I'll get bored.
+
+I actually had to swap out the boot and reset switches 3 seperate times while I was trying to find something low profile enough to fit under the top plate. This will have a solid plate over it after all and I can't have that hitting the buttons. The original ones were way too tall. The second revision was better but still too tall. So for the third I got the literal lowest profile I could find. These bad boys are half a millimeter tall. 
+
+<img width="1438" height="890" alt="image" src="https://github.com/user-attachments/assets/2a3108c4-5d08-4888-b9c4-baac3c82f38a" />
+
+They should work though! Was only mildly tedious to export the 3d file, make changes, export again, make changes, export again, make changes, and export for the last time. Just typing that was annoying. But I did it for the love of the game. 
+
+I really need to stop procrastinating on the mu board. But, I might do some general cad of the whole deck first. Not sure. TBD.
+
 # 2026-06-26
 **Total Time Spent: 2 hours**
 
