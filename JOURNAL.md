@@ -2,6 +2,53 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+# 2026-06-26
+**Total Time Spent: 2 hours**
+
+Keyboard 2 - Electric Boogaloo. 
+
+So. I fiugred out that my footprint for the keyswitch sockets was wrong as it did not contain the necessary mounting holes for the switches. This meant I had to redo the keyboard.
+
+I took this opportunity to also move the brains up top. This makes the keyboard way less wide, allowing me to make the whole deck less wide. Hooray.
+
+I also took progress photos this time.
+
+<img width="1833" height="645" alt="image" src="https://github.com/user-attachments/assets/c2c9c415-44c5-4bf0-a790-4a0437efd790" />
+
+I started by organizing the key grid. Because this is an ortholinear keyboard, it really is just a basic grid. Each diode got put in a little slot at the top, where there is a cutout in the key switch. This is important to avoid collisions of the keys with the diodes.
+
+Next I wired up the rows and columns. This is always the most time consuming part. 
+
+<img width="1608" height="719" alt="image" src="https://github.com/user-attachments/assets/bfceb8d8-c9e3-4405-9ef1-91e6f27f0f74" />
+
+<img width="1633" height="685" alt="image" src="https://github.com/user-attachments/assets/20c52229-088b-4eb4-8b76-2e254c12487e" />
+
+Once I had the grid done, I decided to do something I don't normally do. I adjusted the pin locations to match the physical layout, allowing me to make a MUCH better looking circuit. It went through a few iterations. 
+
+<img width="1929" height="266" alt="image" src="https://github.com/user-attachments/assets/5302e8da-065f-4b0f-82ec-1035fcd32998" />
+
+<img width="669" height="229" alt="image" src="https://github.com/user-attachments/assets/29c18173-9a2d-4e0f-b94a-7a0bc6ba0ced" />
+
+Here are two of them. The second looks way better. 
+The columns all connect to the sides while the rows attach to roughly the bottom right. This makes the whole circuit very well organized and creates "wings" of sort out of wiring for the columns. I love it. 
+
+Next was the brains! I challenged myself to make this as compact as posSIble - good practice for when I have to do the Mu board. 
+
+<img width="1658" height="423" alt="image" src="https://github.com/user-attachments/assets/a3bd8acb-e432-468f-980d-ef93f416c326" />
+
+It looks pretty great! Left to right it goes USB, 3v3 LDO, MCU, and then debug switches. 
+
+<img width="1272" height="689" alt="image" src="https://github.com/user-attachments/assets/f894cff7-8162-4303-9863-6d131e54e375" />
+
+Here is a close up of the usb section. It is so compact!
+
+This board is 2 layer too. If I can get this compact on 2 layer, imagine what I can do with 4 or 6 (aka the mu board).
+
+I really didn't want to redo this board but I am very glad I did. It is way narrower, at 228.5mm wide instead of 260mm, allowing me to keep this deck small. Specifically, small enough to fit structural parts on my 3D printers without splitting them up. Because it's way cooler to not have ugly seams/splits!
+
+I am getting really excited for this project. The keyboard board is so good. 
+
+
 # 2026-06-26 
 **Total time spent: 2 hours**
 
