@@ -6,6 +6,51 @@ LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 # 2026-06-27
 **Total Time Spent: 1 hour**
 
+Beginning of the PCB. The big one. And planning. 
+Okay. So. 
+
+I imported all the pcb stuff and dear lord is there a lot of components. 
+
+<img width="1710" height="1019" alt="image" src="https://github.com/user-attachments/assets/c3e9c6c3-2d2c-482f-b995-fbfdf562cd30" />
+
+So. What's the first step? Sort it! 
+
+I sorted everything by schematic page and then within the pages by section/component. That way I know what capacitors and resistors belong to what just by glancing at my design. 
+During this sorting, I felt that my battery stuff was looking off. There was an excess of components and some weird duplicates. Turns out, I had accidentally copied a couple things that Ti included in their reference circuit that exist only for internal Ti debug. AKA, they are useless to me. So I went and removed those. Extra programming headers mainly, with some resistors paired with em. 
+
+<img width="1104" height="765" alt="image" src="https://github.com/user-attachments/assets/c1e2e1e1-84e7-4788-814f-f909b9a3ef51" />
+
+It's kinda goofy how big of a spot the battery connector gets but its ok. 
+
+Anywho, with that out of the way, I now had a sorted design.   
+
+<img width="1708" height="1025" alt="image" src="https://github.com/user-attachments/assets/92bfc69d-fdb5-4cbd-9cb3-af12c30d0f01" />
+
+You can see the clusters of components and whatnot.
+Looking at it now, I realize that one of the usbc ports should be by the power circuity (bottom right) since it is part of that.
+
+<img width="1622" height="988" alt="image" src="https://github.com/user-attachments/assets/86bd63a3-14c1-48d7-aead-7d5baceb3857" />
+
+Not that you can read the words, but you can see stuff moved. 
+
+<img width="1558" height="955" alt="image" src="https://github.com/user-attachments/assets/8693eedf-dad1-4528-b79e-60f10e368b36" />
+
+Here it is with ratlines by the way. Completely unreadable.
+
+Anywho, game plan. I can't quite figure out sizing but I can kinda let the pcb decide that. This is gonna be a bit of a thick boi but that's alright. I think the mu will be on the back of the deck, not the front, as I can put a vent back there. And then the screen can go on the other side. I have a few requirements though:
+Aim for a max width of 230mm. I have a lot more space in Y than X (x is the 230mm) to expand if needed, because of the screen. 
+External ports on the right if possible.
+Antennas up top if possible. 
+Internal ports on the bottom if possible. 
+Mu somewhere in the middle! 
+
+That's my plan for now. Obviously, I can change where things end up to fit my format better. But I think that plan should work out. I will need some usb male to female cables to make routing everything work I think. Mostly for the internal rtl-sdr. 
+
+PCB Time! 
+
+# 2026-06-27
+**Total Time Spent: 1 hour**
+
 CAD Break! I decided to toss the keyboard pcb in cad so I could get a full mockup with the switches and just get a general vibe for the scale. 
 
 <img width="1652" height="839" alt="image" src="https://github.com/user-attachments/assets/88c4ea31-dfd0-4190-b2a5-31c6dd6e2a56" />
