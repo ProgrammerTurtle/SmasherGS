@@ -2,6 +2,45 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+#2026-06-29
+**Total time spent: 3 hours**
+
+Power circuitry!
+
+I wasn't sure where to start and I certainly didn't want to start with any highspeed routing. So, we are doing the power circuit first.
+I started with simply just... trying to get everything connected and compact. This would prove harder than I anticipated. 
+
+<img width="905" height="839" alt="image" src="https://github.com/user-attachments/assets/8c054dba-9393-4c1f-8f06-c51fafbf33eb" />
+
+It's a big mess honestly. I was working without ratlines so that I can actually see what I am doing, and that means I forgot some components. So it actually just got worse for a bit. 
+
+<img width="1305" height="976" alt="image" src="https://github.com/user-attachments/assets/64fd7153-ef35-4882-ad66-eb31b8e40073" />
+
+The big thick trace is 12v main power. This is up to like, 35 watts, so it needs to be super big. Hence the 3mm wide trace. We have roughly:
+Bottom is 5v. Top middle is 12v. Top right is battery charger. 
+You can kinda see the ICs buried in there. Those are the focal points. 
+
+The very first thing I did to make this better was move 5v. I realized there's no reason it needs to be so smushed in there. 
+
+<img width="1414" height="757" alt="image" src="https://github.com/user-attachments/assets/caa290a6-c086-4608-852b-9462ce8c8f81" />
+
+So, it gets scooted over to the left. Much better. Zooming in on 5v...
+
+<img width="939" height="682" alt="image" src="https://github.com/user-attachments/assets/d164d8e1-309e-47af-8f1e-4d4da62b6e5b" />
+
+<img width="848" height="630" alt="image" src="https://github.com/user-attachments/assets/5f676b04-87dc-42e5-829b-66435a67768d" />
+
+I did some rearranging to make it less wonky and added the components I had forgotten - mainly decoupling caps. I am really good at forgetting decoupling caps. Since 5v is the main power for the system besides 12v for the mu, it gets a big big decoupling cap. That's the big thing on the left. 
+There are actually three ICs in here. One is the 5v buck converter, one is the 5v load switch for the system, and one is the 3v3 LDO. I completely forgot 3v3 is in there! Not that it's easy to tell. 
+
+<img width="1377" height="752" alt="image" src="https://github.com/user-attachments/assets/16fdb059-b176-4373-98e3-217ee2ea2c1b" />
+
+This is the current state of the power circuitry. We have from left to right: 5v and 3v3, 12v, battery charger, and charger EEPROM. Plus the battery and thermistor connectors. 
+
+<img width="1318" height="781" alt="image" src="https://github.com/user-attachments/assets/693a08c3-53e2-4a53-879c-cce8a1e31a09" />
+
+Here is a view of the internal power layer. I used a mix of wide traces and copper pours for this so that I can guarantee my traces are wide enough. I also used multiple vias for connections in a lot of spots to give more "wire" for the power to go over. It's way less of a mess now than when we started, and it was annoying to get to this point. I am still not sure if I am super happy with it, but I think it is good enough for now. I still need to wire up the i2c control, but that requires the USBC PD controller be wired. And I haven't gotten that far yet. I think that will be next? Though I may need to route some high speed traces first so I know what I am working around. Not totally sure, I'll probably ask one of my smarter PCB friends what to do. I am gonna get this done, whether through perserverance or straight up spite. 
+
 
 # 2026-06-27
 **Total Time Spent: 1 hour**
