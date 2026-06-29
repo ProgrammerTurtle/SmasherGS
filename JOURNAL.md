@@ -2,7 +2,7 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
-#2026-06-29
+# 2026-06-29
 **Total time spent: 3 hours**
 
 Power circuitry!
