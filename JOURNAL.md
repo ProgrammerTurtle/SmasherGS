@@ -2,6 +2,50 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+
+# 2026-06-29 
+**Total time spent: 3.5 hours**
+
+Power circuitry and some usbc 3.2.
+
+So. High speed routing is probably what I hate most in the world right now. It's so annoying, it's all diff pairs, you gotta be so careful. Bleh. Impedance and length matching. Bleh. 
+Regardless, I started routing the very first usbc port just because I have to work around it's traces. 
+
+<img width="1281" height="727" alt="image" src="https://github.com/user-attachments/assets/c1968b9f-6393-4038-a358-5aaa0e6867a9" />
+
+This took an hour. This. It's 8 trace routes. Although because of how easyeda works it's split into like 16 different configured differential pairs. Each one needs the rules assigned to tell it spacing and width. Then I had to actually route them. TX lines are supposed to get their passives closer to the USBC port while RX lines get it closer to the device, but both kinda got it in the middle because of how the spacing works out. Oh, and they all get piped through ESD diodes. Then I had to length match them within like, 0.1mm. Blehh.
+
+<img width="1675" height="508" alt="image" src="https://github.com/user-attachments/assets/eb2fc6a0-594a-4394-91e7-38bd7f743c8f" />
+
+<img width="1701" height="504" alt="image" src="https://github.com/user-attachments/assets/4e5e2774-1a13-49ef-958f-28afea20870e" />
+
+After that I worked more on power circuitry. I needed to route I2C lines within the power circuitry so that the ICs could talk to eachother, as well as add more passives that I had forgotten. Mostly decoupling. I also shifted the VBUS line down so I would have room to wire 5v and 3v3 to all the ICs crammed in there. Before that they were all kinda blocked on my power plane, which defeats the point of a power plane. 
+
+More on usbc. I had to change nets (pins) a bunch in my schematic to get this to work because I needed them to line up with the physical pin and component locations so I wasn't crossing paths or anything.
+While doing this, I noticed something. My USBA 3.2 port was doubled up on pins, sharing with my first USBC port. That's not right...
+Turns out, I had made a big oopsie. By default the lattepanda mu only exposes 2 usb3.2 paths. Exposing more would require messing up my hdmi or ethernet. And that doesn't work. So, I actually had to delete my usba 3.2 port! That's fine, I have two usbc and a usba still, the usba is just 2.0. But, be honest, who actually needs usba 3.2 when you have usbc? Worst case I plug in a hub. 
+
+<img width="1348" height="927" alt="image" src="https://github.com/user-attachments/assets/d43be22e-e8b3-4915-b257-b1979b4fefb7" />
+
+<img width="1195" height="1160" alt="image" src="https://github.com/user-attachments/assets/18d97ca6-caa7-4659-87bb-46447e3d19ca" />
+
+This gives me a decent bit more space and actually makes my life easier. Yay.
+
+Anywho, I think the power circuitry and first usbc port are actually done? Ish. I need to route 3v3 and 5v still within the power circuit, and I need to connect the USBC port to the Lattepanda Mu. But those will come later as there are a lot of other components those work around. 
+
+I spent way too long figuring out how to do high speed traces. These usbc traces are all matched to 90 ohms, all length matched within their pairs, all spaced out, connected to ESD diodes, their passives, aaaaah. There is so much to keep track of. 
+
+<img width="1302" height="774" alt="image" src="https://github.com/user-attachments/assets/2f43c5f4-c1d8-4a84-a1ef-2a97876a1e9d" />
+
+This is the net rule menu for the usbc traces. There are 12 more not pictured, roughly. Each one gets assigned the "usbc" rule I wrote, which just defines spacing and width. I believe spacing and width are like 0.254mm and 0.155mm? Something like that, I know the width I said is right. Spacing is less important as it's just "make pairs close, make not pairs far". 
+
+I think. This is all just my interpretation and it could be wrong. We won't really find out for sure until I try to use the board!
+
+Regardless, I made some serious progress and am getting excited for this to be done! I think I can use this to qualify for OutPost! Hopefully. I really want to go to open sauce again. 
+
+Next I think is the second USBC port and starting the last of the power routing. Yay. 
+
+
 # 2026-06-29
 **Total time spent: 3 hours**
 
