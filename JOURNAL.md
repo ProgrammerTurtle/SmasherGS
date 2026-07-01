@@ -2,6 +2,50 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+# 2026-06-30
+**Total time spent: 2.5 hours**
+
+The second usbc port!
+I have decided that differential pairs are my greatest enemy. Truly, this is miserable 
+
+<img width="1182" height="540" alt="image" src="https://github.com/user-attachments/assets/343133f5-5038-4b27-86ec-4c2fa12579c1" />
+
+I worked from the "bottom" up, routing traces through their passives in impedance and length matched pairs.
+
+<img width="1682" height="768" alt="image" src="https://github.com/user-attachments/assets/8d1696b9-6036-445a-a984-be48ad1ea352" />
+
+This worked surprisingly well and I ran into minimal issues. Something cool I was able to do was go back and use open channels on existing ESD diodes rather than adding more. Specifically, that one at the top. It had one pair from the first usbc port, and now has a pair from the second port. Since they both had to be routed around the plug legs like that, they end up in the same spot. 
+
+<img width="1109" height="612" alt="image" src="https://github.com/user-attachments/assets/c63a7480-c7e5-4686-b980-b2a9197ee267" />
+
+RX lines get just resistors while TX lines get capacitors and resistors. That's what the smaller passives are on two of the lines - capacitors. 
+
+Once I had those 4 lines routed, I get to route the less crucial lines. There's still a diff pair in these ones, but since it's usb 2.0, it is way less important where that bad boy goes. It's lower speed. Higher speed = more fragile = more important. 
+
+<img width="1398" height="787" alt="image" src="https://github.com/user-attachments/assets/fe5e06f1-13ba-401d-b757-3c3087af2c71" />
+
+For these routing I had to add the other chips necessary for the port. One for protecting vbus shorts and one for connecting vbus to 5 volt, since this port needs to be a power source, not just a sink. That way it can power other devices. 
+
+<img width="1361" height="691" alt="image" src="https://github.com/user-attachments/assets/8f883e10-9428-4305-bc62-51efce2d4d69" />
+
+This is what those vbus lines look like. They will be connected to 5v ultimately, but I have yet to route 5v. Soon. 
+
+With a couple more traces, I had this USBC port complete. 
+
+<img width="1569" height="798" alt="image" src="https://github.com/user-attachments/assets/25127dcc-110a-4b35-9717-87c8b7cdac29" />
+
+This one is a mess. And it was super tedious as always. But after this I get to route just some nice chill usb 2.0 as a break before I route HDMI. Hdmi has waay more passives on the diff pairs for some reason. HDMI and Ethernet also mean I get to deal with writing new differential pair rules as these have different impedances from USBC. 
+
+Anywho, here's both usbc ports together. 
+
+<img width="818" height="828" alt="image" src="https://github.com/user-attachments/assets/bfc39229-ceda-4ad8-a4ce-73c19459c1bb" />
+
+It's really getting busy in here! Can't wait to add more.
+
+
+On the logistics side of things, I got approved for super hardware builder for Outpost aswell as got my flight stipends approved. That means I am going to Open Sauce/Outpost! I need to finish this project by July 7 to truly "qualify", though if I already have flights...
+I'm not worried, I'll get it done in time. 
+
 
 # 2026-06-29 
 **Total time spent: 3.5 hours**
