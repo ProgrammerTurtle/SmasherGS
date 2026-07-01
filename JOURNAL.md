@@ -2,6 +2,55 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+
+# 2026-06-30
+**Total time spent: 1.5 hours**
+
+I routed 1 hdmi port and 4 usba 2.0 ports! I am making solid progress!
+First was hdmi. This required defining a new differential pair rule for 100 ohms instead of 90 ohms (usb spec). Easy enough.
+
+<img width="907" height="618" alt="image" src="https://github.com/user-attachments/assets/70229b4f-0785-4f53-ab12-59d885f71b66" />
+
+That's the rule. Anywho.
+HDMI has a pretty interesting circuit on it actually. When the device goes to sleep or shuts off, it pulls all the hdmi lines to gnd with a mosfet. I always thought the way computers did sleep for hdmi was something way fancier but no. It literally just shunts the signal to gnd. Pretty neat in my opinion!
+
+<img width="962" height="328" alt="image" src="https://github.com/user-attachments/assets/ecb87611-e90d-4d63-82bd-bf26cd816c17" />
+
+That's the big circuit with resistors on the left. All into a mosfet that triggers with sleep or shutdown. The sls_s0 operates that way - only active (low) when the device is in use. 
+
+Recreating this was a bit of a hassle honestly and really made me think. But I got it figured out in the end. 
+
+<img width="1191" height="674" alt="image" src="https://github.com/user-attachments/assets/a524c529-5a47-4daf-bdaa-2b772a2c75b9" />
+
+From right to left it goes connector, ESD diodes, resistors, and then ac filtering capacitors. AC filtering capacitors ugh. Doesn't that sound like it should filter out AC? But actually, they work by blocking DC and only letting AC through. I think that should be named DC filtering but idk I ain't no electrician. 
+Rant aside, those resistors will get connected to a common line in the signal layer (layer 3) and then to a mosfet. 
+
+<img width="1212" height="708" alt="image" src="https://github.com/user-attachments/assets/daf706bc-9390-4498-ba51-446db710e36d" />
+
+Next was an I2C level shift. The HDMI side of the I2C lines operate on 5 volt while my device side operates on 3 volt. So, I use a little IC to handle the level shift and make sure my data stays clean. 
+Did you know there is I2C in HDMI? I sure didn't, but it is fascinating. Basically, the I2C lines are how your device figures things out like screen size, resolution, refresh rate, color profiles, etc. Basically, it is how the device and screen "talk" about what each is capable of and what they need from eachother. Over I2C! I've personally seen 30 foot hdmi cables. You're telling me I2C lines can be 30 feet long without issue?? Wow. Fascinating stuff.
+
+Second rant aside, the next circuit was my hot plug detection and 5v power. This is the last bit.
+
+<img width="976" height="504" alt="image" src="https://github.com/user-attachments/assets/2b29a7bd-598c-4b9d-b889-dbf202567496" />
+
+These just get lumped together because the pins are together. 5V is on the very left with the rectangle thing, that's a diode. Everything to the right of that is hot plug detect. It basically tells my device that a screen was unplugged/plugged in while my device was on so that it knows to reconfigure everything. Pretty neat. 
+That's a full hdmi port! It looks like this: 
+
+<img width="1015" height="676" alt="image" src="https://github.com/user-attachments/assets/ff07d4c7-5c54-4603-9c38-a7a4ea8ba69a" />
+
+Next was the USB ports. One is external and the other three are internal. 
+
+<img width="1566" height="610" alt="image" src="https://github.com/user-attachments/assets/5c2a6933-3fc1-4816-aa7a-8864532d8cdb" />
+
+<img width="693" height="357" alt="image" src="https://github.com/user-attachments/assets/95aacc51-eafd-4fe1-a3cc-9178709a2341" />
+
+They are all basically carbon copies save for two of the internal ones sharing an ESD diode module just because they can and I want to cut down on components. They all get ESD filtering on the data pair, plus a fuse and decoupling capacitor on the 5V power line. That way an overcurrent blows the fuse and not my whole board. 
+
+That's it for this entry! I am on a roll today and honestly may not sleep for a while to just keep going. Or I will. I don't know, it's late.
+Next is the second HDMI port and the Ethernet port. Not sure which will come first. Probably HDMI since I know how to do it. 
+
+
 # 2026-06-30
 **Total time spent: 2.5 hours**
 
