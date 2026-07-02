@@ -40,7 +40,7 @@ Stupid simple, so it's stupid reliable. Boom. Power circuit done.
 
 With that fixed I could go back to adding all the passives and power hookups for my ethernet controller. 
 
-<img width="1243" height="588" alt="image" src="https://github.com/user-attachments/assets/96c7639b-8ee4-4b3c-9948-26f02f787be8" />
+<img width="1246" height="709" alt="image" src="https://github.com/user-attachments/assets/6078627a-e22d-444e-a18a-bc553c60cf28" />
 
 Bam. Done. 
 This thing has so many power hookups, it's unreal. 4 different pins get 1v0, 3 different pins get 3v3. That's 7 pins. Wtf. 
