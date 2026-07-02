@@ -1,4 +1,4 @@
-# TurtleGS
+# SmasherGS
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
