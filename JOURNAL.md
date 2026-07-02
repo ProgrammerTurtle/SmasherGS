@@ -4,7 +4,7 @@ LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
 
 # 2026-07-01
-**Total time spent: 2 hours**
+**Total time spent: 3 hours**
 I routed the second hdmi port and the ethernet port!
 HDMI was super straight forward, just a copy of the other one rotated 90 degrees. Did take me a second to remember what I did but I got it done. 
 
@@ -62,7 +62,7 @@ That's it! Only 7 things on my checklist. M.2 slots are more diff pairs because 
 I guess I'll tackle M.2 next? TBD. 
 
 # 2026-06-30
-**Total time spent: 1.5 hours**
+**Total time spent: 2.5 hours**
 
 I routed 1 hdmi port and 4 usba 2.0 ports! I am making solid progress!
 First was hdmi. This required defining a new differential pair rule for 100 ohms instead of 90 ohms (usb spec). Easy enough.
@@ -110,7 +110,7 @@ Next is the second HDMI port and the Ethernet port. Not sure which will come fir
 
 
 # 2026-06-30
-**Total time spent: 2.5 hours**
+**Total time spent: 3.5 hours**
 
 The second usbc port!
 I have decided that differential pairs are my greatest enemy. Truly, this is miserable 
@@ -155,7 +155,7 @@ I'm not worried, I'll get it done in time.
 
 
 # 2026-06-29 
-**Total time spent: 3.5 hours**
+**Total time spent: 4.5 hours**
 
 Power circuitry and some usbc 3.2.
 
@@ -198,7 +198,7 @@ Next I think is the second USBC port and starting the last of the power routing.
 
 
 # 2026-06-29
-**Total time spent: 3 hours**
+**Total time spent: 4 hours**
 
 Power circuitry!
 
@@ -238,7 +238,7 @@ Here is a view of the internal power layer. I used a mix of wide traces and copp
 
 
 # 2026-06-27
-**Total Time Spent: 1 hour**
+**Total Time Spent: 1.5 hour**
 
 Beginning of the PCB. The big one. And planning. 
 Okay. So. 
@@ -303,7 +303,7 @@ They should work though! Was only mildly tedious to export the 3d file, make cha
 I really need to stop procrastinating on the mu board. But, I might do some general cad of the whole deck first. Not sure. TBD.
 
 # 2026-06-26
-**Total Time Spent: 2 hours**
+**Total Time Spent: 2.5 hours**
 
 Keyboard 2 - Electric Boogaloo. 
 
@@ -350,7 +350,7 @@ I am getting really excited for this project. The keyboard board is so good.
 
 
 # 2026-06-26 
-**Total time spent: 2 hours**
+**Total time spent: 2.5 hours**
 
 Keyboard! I finally decided to do some pcb design for this project and put the whole keyboard together. 
 Did I remember to take progress screenshots? 
@@ -369,7 +369,7 @@ That's it ! A super quick ortholinear 50% keyboard with USBC for my deck. It may
 That's the easy part of this project done. Next is a bunch of hard routing. Ugh. 
 
 # 2026-06-25
-**Total time spent: 2.5 hours**                
+**Total time spent: 3.5 hours**                
 
 Little fixes, little annoyances. 
 Ok so. I had to make a bunch of small fixes in prepping for pcb time and ugh. For instance, changing every instance of a + or - to _P or _N. Why? Because I decided I like that more and want it to be consistent across my whole schematic. What else... I ran DRC a few times to catch issues. Everything is wired up now. 
@@ -395,7 +395,7 @@ Now I think I really am ready to start the pcb. I do want to maybe take a look i
 PCB Soon! 
 
 # 2026-06-24
-**Total time spent: 3 hours**
+**Total time spent: 4.5 hours**
 
 GPS and LORA!! These are the last two major things of the project. I am forgoing the continuity checker now because all my flight computers do continuity checking and, more importantly, I don't feel comfortable applying current to explosive charges using anything I designed. 
 
@@ -475,7 +475,7 @@ The LattePanda Mu arrived! This was sponsored by DFRobot - I am so incredibly th
 Man, this project is gonna be awesome. Ok. End of entry. 
 
 # 2026-06-23
-**Total time spent: 3 hours**
+**Total time spent: 4 hours**
 
 Today was ethernet and some little touches here and there. Connecting stuff to the lattepanda mu, changing some usba ESD diodes, planning, etc.
 
@@ -522,7 +522,7 @@ It's funny, I am already past 24 hours of work on this... and I haven't started 
 Yippee. 
 
 # 2026-06-22
-**Total time spent: 4 hours**
+**Total time spent: 4.5 hours**
 
 Howdy again! Second entry for today. I tackled HDMI and... the keyboard! 
 First, hdmi. I have two hdmi ports. One on the inside, one the outside. I need a port, protection diodes, and some power stuff/other misc. requirements. 
@@ -597,7 +597,7 @@ Ta ta, again. I will not be journaling again today. I am sleepy.
 
 
 # 2026-06-22
-**Total time spent: 2 hours**
+**Total time spent: 3 hours**
 
 Howdy.
 I figured out the USB stuff! Turns out, I can just wire any two GPIO pins from the TPS25751 to the flip and enable pins of my usbc mux and then I can assign those roles through programming. Ezpz.
@@ -656,7 +656,7 @@ Anywho, I didn't end up getting to routing the signals to the usb 3.2 logic cont
 I spent so long researching and reading datasheets. I have 60 chrome tabs open right now. Bleh.
 
 # 2026-06-15: Big News!
-**Total time spent: 3 hours**
+**Total time spent: 4 hours**
 
 Hi. So.
 This project has been sponsored by LattePanda/DFRobot! I will be receiving a LattePanda Mu to base this project around.
