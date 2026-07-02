@@ -3,6 +3,64 @@
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
 
+# 2026-07-01
+**Total time spent: 2 hours**
+I routed the second hdmi port and the ethernet port!
+HDMI was super straight forward, just a copy of the other one rotated 90 degrees. Did take me a second to remember what I did but I got it done. 
+
+<img width="801" height="826" alt="image" src="https://github.com/user-attachments/assets/61010f73-cc89-4482-9694-33c7e86416c6" />
+
+Next was ethernet. I had no idea what I was doing for this but here we go.
+I started connecting the diff pairs of the connector to my ethernet controller. This converts the ethernet junk to PCIE for my Mu to deal with. 
+
+<img width="1562" height="781" alt="image" src="https://github.com/user-attachments/assets/e799f028-d107-4893-ac41-4316513f189c" />
+
+All length matched, impedance matched to 100 ohms, spaced out properly, ESD filtering, etc. All sorts of nonsense.
+It was at this point, when I went to wire the passives for my ethernet controller that I realized - hey, this needs 1v0. I don't have 1v0 in my power circuit. 
+
+Time to speedrun a power circuit. Ready... Set... Go!!
+
+I started by pulling up TI WeBench to get a power circuit schematic. I inputed 1v and 500ma and it outputted a couple options. I picked the first one, the cheapest. 
+
+<img width="1252" height="822" alt="image" src="https://github.com/user-attachments/assets/3847c8e9-14a9-4990-910c-9b651fb10323" />
+
+It gave me this. I used it to make: 
+
+<img width="1093" height="861" alt="image" src="https://github.com/user-attachments/assets/9fe3b4c4-1265-4231-aed7-7a252315e32c" />
+
+This. Identical circuit, just some pins moved on the symbol. I threw this onto the Ethernet page because my Power page is full, and because this is gonna be near the ethernet connector as I don't trust the 1v to survive a path across the board. Just in case. 
+
+<img width="1845" height="1292" alt="image" src="https://github.com/user-attachments/assets/aa7cb031-2f59-40db-969e-bf721d9c9d2c" />
+
+After that, I synced the schematic to my pcb, and threw together the circuit on board. 
+
+<img width="1198" height="717" alt="image" src="https://github.com/user-attachments/assets/ffaa36a1-5241-4ef2-9626-91ccb9541e70" />
+
+Stupid simple, so it's stupid reliable. Boom. Power circuit done. 
+
+With that fixed I could go back to adding all the passives and power hookups for my ethernet controller. 
+
+<img width="1243" height="588" alt="image" src="https://github.com/user-attachments/assets/96c7639b-8ee4-4b3c-9948-26f02f787be8" />
+
+Bam. Done. 
+This thing has so many power hookups, it's unreal. 4 different pins get 1v0, 3 different pins get 3v3. That's 7 pins. Wtf. 
+It's ok though, I got it done. I did have to route decoupling internally for a couple pins just because they got placed next to high speed pairs for some reason (stupid placement realtek. stupid placement.).
+I think if I do this again I will use a TI IC for ethernet because the realtek documentation is mid and 1v0 is stupid. Give me 3v3 and 5v like a sane person.
+
+Anywho, with that done, all the ports on the board are wired. Yup. All of them. HUGE progress. But - what do I have left? 
+
+m.2 slots
+CMOS battery
+fans
+gps
+lorawan
+
+final power routing (5v and 3v3)
+final signal routing (hook it all up to the mu)
+
+That's it! Only 7 things on my checklist. M.2 slots are more diff pairs because of course they are, but after that it's smooth sailing stupid logic until the final signal routing. And even then, that is partially stupid logic too (high speed = smart logic, low speed = stupid logic). 
+I guess I'll tackle M.2 next? TBD. 
+
 # 2026-06-30
 **Total time spent: 1.5 hours**
 
