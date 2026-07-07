@@ -2,6 +2,46 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+# 2026-07-06
+**Total time spent: 3 hours**
+So. I did the pcie ports. This was a doozy. 
+
+So for my 3V3 setup for this board, I have a 500ma LDO. Because I don't have much 3V3. I thought.
+
+Fun fact - M.2 SSDs draw up to 3 amps.
+Uh oh. 3 amps??? That's insane!
+So, I initially was just adding a 6a circuit. I got that all sorted.
+
+<img width="1164" height="462" alt="image" src="https://github.com/user-attachments/assets/ed23152b-e57d-479b-9e56-4c76d16dc765" />
+
+<img width="1540" height="1084" alt="image" src="https://github.com/user-attachments/assets/d392064e-238d-43a0-9884-4558f3560b2f" />
+
+Turns out, this needs 2oz copper. I am not doing 2oz copper. That is expensive.
+So I switched. Each m.2 gets its own 3V3 3A circuit. 
+
+<img width="1026" height="726" alt="image" src="https://github.com/user-attachments/assets/5ea31aaa-8ff9-4b5c-b281-160a0d77cadd" />
+
+<img width="1051" height="491" alt="image" src="https://github.com/user-attachments/assets/7548819b-0368-41b4-8ad4-45929efaa7be" />
+
+Not actually that complex! Just annoying.
+
+It was at this point that I also realized I had both M.2 on the same PCIE lines. This does not work.
+So, I had to delete ethernet to get another pcie set.
+This is fine. I was never really going to use it if we're being honest and it lets me make the whole board much smaller to get rid of it.
+
+<img width="1647" height="898" alt="image" src="https://github.com/user-attachments/assets/1e8ee3d0-a60d-482e-beed-be879e082612" />
+
+The board is like, 120mm wide now!
+In that photo you can also see the completed M.2 circuits. Each one has a power circuit tapping into the main 12v, and some passives for stuff like filtering high speed lines and a status LED - one per M.2. 
+
+<img width="1346" height="1151" alt="image" src="https://github.com/user-attachments/assets/4a551b15-cbf9-4c34-b796-1c2ca46c950e" />
+
+<img width="772" height="885" alt="image" src="https://github.com/user-attachments/assets/0080574b-8129-49f9-aba2-a36b51dcc633" />
+
+Here are some closeups! The circuits off to the side of each port are the power circuits. The bottom left two components are the status LEDs, and the top right two components are filtering capacitors for high speed lines. 
+
+With those updates, the board is now ready to hook up all the high speed pairs to the mu! After that I get to do low speed, power routing, and be done! Woooo.
+I am so ready to be done with this pcb.
 
 # 2026-07-01
 **Total time spent: 3 hours**
