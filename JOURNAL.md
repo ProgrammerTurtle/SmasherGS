@@ -2,6 +2,56 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+
+# 2026-07-07
+**Total time spent: 3.5 hours**
+Low speed routing, mounting holes... we are done!!!
+
+As the title of this entry suggests, this is the last entry of pcb design. I routed all the low speed traces, which was the only thing left. Besides mounting holes, which I did afterwards.
+I started at the top left for this and worked my way clockwise around the board. Mostly. At some point I couldn't keep track of what needed routed so I was just following what DRC said needed routed, working my way down the list. I started doing that about halfway through.
+
+This sucked. I had to bob and weave and sneak my way around all the high speed traces, ensuring proper spacing to minimize cross talk and keep trace impedance correct. Having gnd pours or traces close to the high impedance traces changes impedance because of uhh... parasitic capacitance I think? Electromagnetic fields inducing inductance and capacitance. Something like that. 
+
+Anywho, lets see it!
+
+<img width="1981" height="1045" alt="image" src="https://github.com/user-attachments/assets/7fe215c0-1edf-466f-a949-6a6a76962361" />
+
+Look at all that spaghetti. I had to route some traces on my power plane it was getting so busy! Good thing I named it power/aux signal. 
+
+<img width="1902" height="1017" alt="image" src="https://github.com/user-attachments/assets/69c378d6-d476-4e7d-9ff1-8dff39f99c48" />
+
+<img width="1923" height="1024" alt="image" src="https://github.com/user-attachments/assets/a15151bd-9bab-4fa4-bc14-62e0fd4676b0" />
+
+This is the board with gnd pours on top/bottom. The pours are offset 1mm from all traces, which should be enough to protect the high speed. 
+
+<img width="1911" height="1022" alt="image" src="https://github.com/user-attachments/assets/dd0d56ea-416a-453d-af07-1872715ea1d9" />
+
+Here's the signal layer. Yes, I did route some diff pairs on this layer. They are usb 2.0 and do not care. 
+
+<img width="1937" height="1041" alt="image" src="https://github.com/user-attachments/assets/23e644f5-6b73-45c8-9727-34dd4b869bca" />
+
+This is my power/aux sig layer. Mostly big ol power traces and pours, but there are a few signals mixed in that I just couldn't get to route well on other layers. 
+
+<img width="1926" height="1012" alt="image" src="https://github.com/user-attachments/assets/2bd61695-72d3-43a9-8cdd-9b13846b68c8" />
+<img width="1903" height="1002" alt="image" src="https://github.com/user-attachments/assets/c14e1a70-00a6-48ec-9ddb-c814a75ac4b9" />
+
+And those are the GND planes!
+
+With that, we have a finished board!
+
+Well almost. It needs a bit of silkscreen. 
+
+<img width="1944" height="1027" alt="image" src="https://github.com/user-attachments/assets/a928823a-588d-4486-aaa0-0ca21cd74b87" />
+
+That's better.
+
+
+So. Where do we go from here?
+
+It's cad time. I LOVE cad time. I need to physically design the deck itself! Which means exporting the 3D models of my pcbs, modeling out the screen, modeling a case, modeling all the internals, etc. 
+This is the fun part!! Pcbs are NOT the fun part. 
+So... CAD soon!!
+
 # 2026-07-06
 **Total time spent: 2 hours**
 High speed routing!!
