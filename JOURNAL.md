@@ -43,7 +43,7 @@ Well almost. It needs a bit of silkscreen.
 
 <img width="1944" height="1027" alt="image" src="https://github.com/user-attachments/assets/a928823a-588d-4486-aaa0-0ca21cd74b87" />
 
-That's better.
+That's better. You can also see the mounting holes in that photo! I just used EasyEDA's Pad feature to add pads with an OD of 5.8mm and an ID of 3.2mm. Should perfectly match M3 socket head screws. 
 
 
 So. Where do we go from here?
