@@ -3,6 +3,56 @@
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
 # 2026-07-06
+**Total time spent: 2 hours**
+High speed routing!!
+I connected everything up to the Mu. This sucked. Things kept overlapping and it was so bleh. 
+
+I started in the top right with USBC and worked down and to the left. 
+
+<img width="1704" height="964" alt="image" src="https://github.com/user-attachments/assets/0d83c495-9117-41ca-9065-5fbc69195fb2" />
+
+<img width="1681" height="916" alt="image" src="https://github.com/user-attachments/assets/7a57f267-aa1f-400c-b4d4-81976fa1ce8f" />
+
+Well. I actually started with the m.2 because they are right next to the Mu, and then went top right to bottom left.
+
+It was at this point that I felt like something might be off. Why would the pins for one HDMI port be backwards but not for the other?
+The answer was simple: I had the pins wrong. Oops. 
+Once I fixed that I could line up everything real nice. 
+But first, after a tip from a friend, I dropped the USBC lines down to the bottom layer so that everything else could be top. This made it so much cleaner looking. 
+
+<img width="1970" height="1045" alt="image" src="https://github.com/user-attachments/assets/70026412-f8be-46ab-b8b5-1ecc5870ae12" />
+
+SO much better. I am a little worried about EMI from the buck converters but I think it might be ok? I'll add a bunch of GND vias or something.
+
+After I had those all wired up, I did the last few small circuits. 
+
+<img width="1230" height="892" alt="image" src="https://github.com/user-attachments/assets/4ab0298a-67ae-4704-9cb2-de438417782a" />
+
+LORAWAN. 
+
+<img width="1071" height="624" alt="image" src="https://github.com/user-attachments/assets/4b92add4-9915-4ad5-a5d9-7eff405186a3" />
+
+GPS, with the antenna keepout. 
+
+<img width="1573" height="814" alt="image" src="https://github.com/user-attachments/assets/18a3f46d-0af6-432c-9d96-3ad58df96dbf" />
+
+The power switch. 
+
+<img width="977" height="565" alt="image" src="https://github.com/user-attachments/assets/6ae1c9ae-3ca0-41ff-b172-3113a248eba6" />
+
+The fans.
+
+<img width="988" height="591" alt="image" src="https://github.com/user-attachments/assets/9e088a12-76e8-488f-84ef-899a42ce7478" />
+
+And last, but certainly not least, the CMOS battery.
+
+And with that, all the individual circuits are complete.
+
+So what's left? 
+I literally just have to connect all the low speed lines up to the Mu, and I am done. This is no small task, as I have to weave around and through all the high speed lines, but it is very possible. It will get done soon.
+
+
+# 2026-07-06
 **Total time spent: 3 hours**
 So. I did the pcie ports. This was a doozy. 
 
