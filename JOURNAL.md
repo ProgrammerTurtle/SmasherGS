@@ -3,6 +3,82 @@
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
 
+
+# 2026-07-22
+**Total time spent: 4 hours**
+
+CAD!! CAD CAD CAD!! 
+I love CAD.
+Ok, first things first, I exported the Mu carrier board 3D model and imported it into Fusion 360. I needed to add the M.2 accessories and standoffs for the M.2 and Mu stuff. 
+
+<img width="1550" height="894" alt="image" src="https://github.com/user-attachments/assets/e9df92c6-48f9-41ab-abb4-c6274b54bcc3" />
+
+<img width="1624" height="593" alt="image" src="https://github.com/user-attachments/assets/4d4052fe-594b-4a5f-b593-a646277ff17f" />
+
+This was fairly straightforward. The standoffs are M2 x 1.5mm and I used M2 pan head phillips screws as those are typically what M.2 hardware kits include. 
+For the M.2 accessories, we have a full size NVME drive and a half size NVME wifi/bluetooth card. These are lines up to the best of my abilities but may be a smidge off. Thankfully, they are just cosmetic, so it does not matter much at all. 
+Anywho, next up. 
+
+<img width="1191" height="772" alt="image" src="https://github.com/user-attachments/assets/34f2f1c8-6c35-43b2-8ca4-ae0312a56cca" />
+
+<img width="1517" height="866" alt="image" src="https://github.com/user-attachments/assets/c8f64d94-46af-4e8b-9c30-46ed0ef4c094" />
+
+I started laying things out in CAD for the actual deck. I am going for a minimalist flat slab with a metallic top/bottom panel sandwiching a printed frame. So, that's what I am laying out!
+
+You may have noticed (you probably didn't) that the keyboard usb port/buttons/etc are now on the bottom of the PCB. This is no mistake! I realized I made a bit of an oopsie - the only way a top plate can fit with choc switches is if all that good stuff is on the bottom. Ugh. 
+
+<img width="2000" height="958" alt="image" src="https://github.com/user-attachments/assets/cf7bd2b1-1154-445a-b45e-86b82d52d433" />
+
+So, I flipped those components to the other side of my PCB. This required me to reroute a large portion of the matrix (half of it) and all the traces connecting the matrix to the MCU. As you can see in the photo, all the keyswitch footprints are on the bottom now. Flipped.
+Anywho, with that out of the way, I could now move on to developing the case. 
+First was the top plate. This is a 1.2mm aluminum lasercut plate that I will be getting anodized Red to contrast the Black 3D printed mainframe. 
+
+<img width="750" height="855" alt="image" src="https://github.com/user-attachments/assets/ae18218f-f91c-453b-8d82-d83310d64832" />
+
+<img width="828" height="894" alt="image" src="https://github.com/user-attachments/assets/110d1a96-e7e2-4b1b-8d5a-143d7f153769" />
+
+I started by making the keyswitch grid. This is a 17.5x18.5mm spaced 12x5 grid of 13.5x13.5mm squares. Quite a mouthfull. The choc switches snap into this plate nicely, and it serves as a structural point of rigidity. 
+
+<img width="1526" height="1064" alt="image" src="https://github.com/user-attachments/assets/792b0890-e068-46b2-ab27-13c1484c6a08" />
+
+From there it gets extended, and the cyberdeck is starting to look like something! I initially went for this clean look where there was no border around the screen besides the one built into the screen - this would later change, but thats for later.
+
+<img width="1577" height="1138" alt="image" src="https://github.com/user-attachments/assets/3a99e46e-1f67-430d-bdc4-9dd83bc40947" />
+
+I then started building up the black casing. I am targeting 40mm thickness for the printed portion. Which is fairly thick, but it kinda has to be for the lattepanda mu fan stuff to fit. This has a lip for the keyboard pcb to rest on and mounting holes for the keyboard pcb. I will later add bracing under more of the keyboard pcb but for now I am focused on the outermost shell. 
+
+<img width="1056" height="1127" alt="image" src="https://github.com/user-attachments/assets/9f4af29f-d26c-4aea-a50d-b9b60e6142ca" />
+
+It then gets extended under the screen! 
+
+<img width="1080" height="1036" alt="image" src="https://github.com/user-attachments/assets/7daf5cab-1fce-46ce-820f-d435b8aed278" />
+
+Man, it's looking awesome. However, it was at this point that I remembered - hey, the ports for my screen are on the outer edge! How would the cables reach the interior with the ports on the exterior....
+
+They wouldn't. So, it gets extended!
+
+<img width="1540" height="1088" alt="image" src="https://github.com/user-attachments/assets/0afb5ef7-623f-435c-8235-98e8f69dbf37" />
+
+Bam. 
+I actually like how the red border ties it all together and think this still looks awesome! Albeit bigger, but that's ok. 
+
+<img width="1529" height="987" alt="image" src="https://github.com/user-attachments/assets/65a5befb-9587-4d5a-bdc6-83de4ec1f4df" />
+
+At this point I also added a flat back panel to finish the sandwich. This will ultimately have screw holes and ventilation in it, but for now it can stay flat.
+
+That's all for this entry actually! I made a lot of cad progress, but as you may have noticed this entry took a while to get posted. That's because I went to OutPost IRL! It was a life changing event and I had so much fun. It was so awesome.
+
+Anywho. What's next? 
+Literally just fleshing out the casing. I need to:
+Add cutouts for the I/O ports
+Add internal structure/Skeleton
+Add ventilation/Fans
+Add Battery
+Split part into smaller printable sections
+
+And then submit! I am getting so close!!!
+
+
 # 2026-07-07
 **Total time spent: 3.5 hours**
 Low speed routing, mounting holes... we are done!!!
