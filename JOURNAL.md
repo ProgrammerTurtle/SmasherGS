@@ -2,7 +2,58 @@
 
 LattePanda Mu based cyberdeck intended to act as a rocketry ground station.
 
+# 2026-08-14
+**Total time spent: 3 hours**
 
+Final CAD touches.
+
+Wow. That went quick. 
+
+This is the final cad entry though. 
+
+First things first, I had to split the casing into two sections that would fit on my printer. These sections would be joined with M3 bolts and heat set inserts.
+
+<img width="902" height="1079" alt="image" src="https://github.com/user-attachments/assets/bb9acc69-50c9-4c44-897e-04e0b1b92e72" />
+
+This is a simple overlapping butt joint with 4 screws per side. Nothing complex, was just a few sketch and extrudes. 
+
+Next was building up interior structure, which you can see part of in that screenshot. I basically just needed mounting for the screen and board. 
+
+<img width="1097" height="1002" alt="image" src="https://github.com/user-attachments/assets/9055aac3-6e36-416a-8a06-f44238986aa6" />
+
+This is what I came up with. I also added the port cuouts on the side while I was at it. 
+
+This one interior strucutre has mounting holes for both the screen and the lattepanda carrier PCB. 
+
+<img width="1535" height="1079" alt="image" src="https://github.com/user-attachments/assets/6ecdd7af-e113-42e1-89de-488ea3b08497" />
+
+Here is the other side. Unfortunately, this will need supports to print, as I couldn't think of a way to avoid them, which hurts me. But it is what it is, I will make do. 
+
+<img width="1369" height="1011" alt="image" src="https://github.com/user-attachments/assets/6a2da4b6-e9b5-4403-b695-373a89570b60" />
+
+Here is the interior with the components. Looks good! 
+
+<img width="1614" height="1095" alt="image" src="https://github.com/user-attachments/assets/8efe8489-90f4-4885-ab59-4f683355b159" />
+
+Lastly, I added 4 antennas. That's right, 4. 
+
+<img width="1292" height="1043" alt="image" src="https://github.com/user-attachments/assets/fde11553-d8a0-4361-a7f1-c65cc1ec1b2a" />
+
+One is on the inside in this corner! 
+
+The square one internally is a GPS antenna. It is a ceramic active patch antenna. The other 3 antennas are simple "rubber ducky" antennas for Wifi+Bluetooth and LORAWAN. Short and simple. 
+
+That's it for cad! Now I just need to take renders and put the repo together with a BOM and stuff!
+
+Wait, I forgot screws. 
+
+<img width="1503" height="1125" alt="image" src="https://github.com/user-attachments/assets/40a148fe-c021-4efa-add2-8f368ea7052c" />
+
+<img width="1473" height="905" alt="image" src="https://github.com/user-attachments/assets/7cbd25bb-b9fd-462e-99c0-c641440037f6" />
+
+Now we good. I also added slits to the back for cooling! They will just be lasercut into the aluminum.
+
+Okay, alll done for real this time. Now we move on to renders and stuff. 
 
 # 2026-07-22
 **Total time spent: 4 hours**
