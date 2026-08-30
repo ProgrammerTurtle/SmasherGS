@@ -18,3 +18,7 @@ The structure is comprised of 2 aluminum plates sandwiching a 3D printed structu
 It even features a full mechanical keyboard, despite its small size!
 
 <img width="1935" height="1846" alt="cyberdeck-exploded" src="https://github.com/user-attachments/assets/a3260906-8c57-4f7c-9f04-e0785a972477" />
+
+
+## Sponsor
+This project is sponsored by LattePanda! Huge thanks to them. 
